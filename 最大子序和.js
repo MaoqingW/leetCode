@@ -53,9 +53,13 @@ var maxSubArray2 = function (nums) {
   // 剑指Offer中的解法一。
   // 在一次遍历中，逐步判断当前项与之前的累加和的大小，然后在某些情况下舍弃之前已经计算的和。最后返回一个最大值
   // 由之前穷举所有的子数组O(n2)缩减至O(n).leetcode用时超过78.56%。
+
+  // 添加const len  后，时间超过94.99% 空间超过73.04%.
+  // 做过这么多题的最好成绩了
   let total = null;
   let max = null;
-  for (let index = 0; index < nums.length; index++) {
+  const len = nums.length;
+  for (let index = 0; index < len; index++) {
     const num = nums[index];
     if (total === null) {
       total = num;
